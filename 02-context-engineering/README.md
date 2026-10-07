@@ -27,7 +27,7 @@ La ventana de contexto es, literalmente, **el único entorno en el que el modelo
 
 > **Definición.** **Context Engineering** es la disciplina de diseñar y gestionar **toda** la información que recibe un modelo (instrucciones, estado del proyecto, herramientas, historial y datos recuperados de fuentes externas) para lograr respuestas de calidad, consistentes y predecibles.
 
-![context-img](../assets/img/context-img.png)
+![context-img](../00-assets/img/context-img.png)
 
 ## Del string al sistema
 
@@ -64,7 +64,7 @@ Esta tabla conecta la teoría con lo que usan los equipos que trabajan con asist
 | **Archivos de sesión o notas de traspaso** | Historial / memoria | Sincronizar lo que se hizo entre sesiones o entre agentes |
 | **Una rama o carpeta de trabajo por tarea** | Aislamiento | Un contexto limpio y dedicado por tarea |
 
-![diagram-spec](../assets/img/diagram-spec.png)
+![diagram-spec](../00-assets/img/diagram-spec.png)
 
 ### Glosario que vas a usar todo el tiempo
 
