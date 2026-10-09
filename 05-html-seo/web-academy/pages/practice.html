@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>PRÁCTICA E INTERACTIVIDAD</title>
+</head>
+
+<body>
+
+    <div class="app-wrapper">
+        <!-- TOOLBAR / CONTROL DE APRENDIZAJE -->
+        <div class="toolbar">
+            <div class="toolbar-title">
+                <i class="fa-solid fa-graduation-cap text-blue-600"></i>
+                <span>Academia Brújula · Laboratorio CSS</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button id="toggleStructureBtn" class="btn">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span id="btnText">Activar Modo Estructura / DevTools</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PÁGINA REAL -->
+        <div id="pageContainer" class="page-container">
+
+             <!-- HEADER -->
+            <header class="site-header">
+                <span class="tag-badge tag-badge-header">&lt;header&gt;</span>
+                
+                <h1 class="brand-logo">
+                    <i class="fa-solid fa-compass" style="color: #2563eb;"></i>
+                    Academia Brújula
+                </h1>
+
+                <!-- NAV -->
+                <nav class="site-nav" aria-label="Navegación principal">
+                    <span class="tag-badge tag-badge-nav">&lt;nav&gt;</span>
+                    <ul>
+                        <li><a href="../index.html">Cursos</a></li>
+                        <li><a href="#preguntas">Preguntas</a></li>
+                        <li><a href="#preguntas">Taller Practico</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- SECCIÓN DE PRÁCTICA E INTERACTIVIDAD ("TU TURNO") -->
+            <section class="practice-section" id="preguntas">
+                <div class="practice-header">
+                    <i class="fa-solid fa-flask-vial fa-2x" style="color: #2563eb;"></i>
+                    <div>
+                        <h2>Taller de Práctica Interactivo ("Tu Turno")</h2>
+                        <p style="margin:0; color: #64748b;">Comprueba y experimenta en vivo los conceptos del documento
+                            de estudio.</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+
+                    <!-- TURNO 1: LA CASCADA -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span><i class="fa-solid fa-water text-blue-500"></i> Tu turno 1: La Cascada y
+                                Especificidad</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Dada la siguiente regla de CSS y elemento HTML:</p>
+                            <div class="code-block">
+                                p { color: blue; }
+                                .destacado { color: green; }
+
+                                &lt;p class="destacado"&gt;¿De qué color se ve?&lt;/p&gt;
+                            </div>
+
+                            <div class="sandbox-box cascada-demo">
+                                <strong>Resultado en vivo:</strong>
+                                <p class="destacado" style="font-size: 1.2rem; font-weight: bold; margin: 0.5rem 0;">
+                                    ¿De qué color se ve este texto?
+                                </p>
+                            </div>
+
+                            <div class="explanation-badge">
+                                <strong><i class="fa-solid fa-lightbulb"></i> Explicación:</strong>
+                                Se ve <strong>verde</strong>. Cuando dos reglas chocan, gana la más
+                                <strong>específica</strong>: una clase (<code>.destacado</code>) pesa más que una
+                                etiqueta (<code>p</code>). Si empatan en especificidad, gana la que aparece después.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TURNO 2: PADDING VS MARGIN -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span><i class="fa-vector-square fa-solid"></i> Tu turno 2: Padding vs Margin (Modelo de
+                                Caja)</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Ajusta los deslizadores para ver cómo el <strong>padding</strong> afecta el espacio
+                                interno y el <strong>margin</strong> el espacio externo entre tarjetas:</p>
+
+                            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                                <label>
+                                    <strong>Padding Interno (px):</strong>
+                                    <input type="range" id="paddingInput" min="5" max="40" value="15">
+                                    <span id="paddingVal">15px</span>
+                                </label>
+                                <label>
+                                    <strong>Margin Externo (px):</strong>
+                                    <input type="range" id="marginInput" min="0" max="40" value="10">
+                                    <span id="marginVal">10px</span>
+                                </label>
+                            </div>
+
+                            <div class="sandbox-box" style="overflow-x: auto;">
+                                <div class="box-model-demo-container">
+                                    <div id="demoCard1" class="box-target" style="padding: 15px; margin: 10px;">Tarjeta
+                                        A</div>
+                                    <div id="demoCard2" class="box-target" style="padding: 15px; margin: 10px;">Tarjeta
+                                        B</div>
+                                </div>
+                            </div>
+
+                            <div class="explanation-badge">
+                                <strong><i class="fa-solid fa-lightbulb"></i> Respuesta:</strong>
+                                Para separar el texto del borde se usa <strong>padding</strong> (espacio interno). Para
+                                separar la tarjeta de otra se usa <strong>margin</strong> (espacio externo).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TURNO 3: EL MENÚ EN UNA FILA -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span><i class="fa-solid fa-bars-staggered"></i> Tu turno 3: Menú en una fila con
+                                Flexbox</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Modifica el modo de visualización de la lista de navegación para alternar entre bloque
+                                tradicional y <strong>Flexbox</strong>:</p>
+
+                            <button id="toggleFlexBtn" class="btn"
+                                style="margin-bottom: 1rem; background-color: #0284c7;">
+                                Cambiar a display: flex
+                            </button>
+
+                            <div class="sandbox-box">
+                                <nav id="demoFlexNav">
+                                    <ul id="demoFlexList"
+                                        style="list-style: none; padding: 0; margin: 0; background: #e0f2fe; padding: 1rem; border-radius: 0.5rem;">
+                                        <li><a href="#"
+                                                style="color: #0369a1; text-decoration: none; font-weight: bold;">Inicio</a>
+                                        </li>
+                                        <li><a href="#"
+                                                style="color: #0369a1; text-decoration: none; font-weight: bold;">Cursos</a>
+                                        </li>
+                                        <li><a href="#"
+                                                style="color: #0369a1; text-decoration: none; font-weight: bold;">Preguntas</a>
+                                        </li>
+                                        <li><a href="./pages/practice.html"
+                                                style="color: #0369a1; text-decoration: none; font-weight: bold;">Taller
+                                                práctico</a></li>
+                                        <li><a href="#"
+                                                style="color: #0369a1; text-decoration: none; font-weight: bold;">Contacto</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <div class="explanation-badge">
+                                <strong><i class="fa-solid fa-lightbulb"></i> Explicación:</strong>
+                                <strong>Flexbox</strong> ordena elementos en una dimensión (fila o columna). Aplicando:
+                                <div class="code-block">nav ul { display: flex; gap: 1.5rem; list-style: none; padding:
+                                    0; }</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TURNO 4: ACCESIBILIDAD REM VS PX -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span><i class="fa-solid fa-text-height"></i> Tu turno 4: Decisiones de unidades (rem vs
+                                px)</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Simula el cambio de tamaño de letra de preferencia del usuario en el navegador para ver
+                                cómo reaccionan las unidades fijas (<code>px</code>) frente a relativas
+                                (<code>rem</code>):</p>
+
+                            <div style="margin-bottom: 1rem;">
+                                <label><strong>Simular Fuente Base del Navegador:</strong></label>
+                                <button onclick="setBaseFontSize('16px')" class="btn"
+                                    style="padding: 0.3rem 0.8rem; font-size: 0.85rem;">Normal (16px)</button>
+                                <button onclick="setBaseFontSize('24px')" class="btn"
+                                    style="padding: 0.3rem 0.8rem; font-size: 0.85rem; background-color: #059669;">Aumentada
+                                    (24px - Usuario Baja Visión)</button>
+                            </div>
+
+                            <div class="sandbox-box">
+                                <div style="margin-bottom: 0.5rem;" class="font-demo-px">
+                                    🔴 Texto con <code>16px</code> (Fijo - Ignora preferencia del usuario)
+                                </div>
+                                <div class="font-demo-rem">
+                                    🟢 Texto con <code>1rem</code> (Adaptable - Respeta la accesibilidad del usuario)
+                                </div>
+                            </div>
+
+                            <div class="explanation-badge">
+                                <strong><i class="fa-solid fa-lightbulb"></i> Explicación:</strong>
+                                El texto en <code>rem</code> se ajusta a la preferencia de accesibilidad de la persona;
+                                el de <code>px</code> la ignora. Usar <code>rem</code> para fuentes y espaciados asegura
+                                que tu sitio sea accesible.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ERROR DETECTAR 3: FOCO ACCESIBLE -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span><i class="fa-solid fa-keyboard"></i> Error para detectar 3: Accesibilidad de Foco
+                                (:focus-visible)</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Prueba a presionar la tecla <strong>Tab</strong> de tu teclado para navegar entre estos
+                                enlaces:</p>
+
+                            <div class="sandbox-box" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <div>
+                                    <p style="margin-top:0;"><strong>Con <code>a { outline: none; }</code>
+                                            (Incorrecto):</strong></p>
+                                    <a href="javascript:void(0)" class="focus-demo-link focus-disabled">Enlace Ciego</a>
+                                </div>
+                                <div>
+                                    <p style="margin-top:0;"><strong>Con <code>a:focus-visible</code>
+                                            (Accesible):</strong></p>
+                                    <a href="javascript:void(0)" class="focus-demo-link focus-enabled">Enlace
+                                        Accesible</a>
+                                </div>
+                            </div>
+
+                            <div class="explanation-badge">
+                                <strong><i class="fa-solid fa-lightbulb"></i> Explicación:</strong>
+                                Eliminar el contorno con <code>outline: none</code> deja a ciegas a quienes navegan con
+                                teclado. No se elimina: se reemplaza usando <code>a:focus-visible</code> para un
+                                indicador claro y accesible.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

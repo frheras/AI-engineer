@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Font Awesome Icons for visual enhancement -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS for the web academy -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <!-- TOOLBAR / CONTROL DE APRENDIZAJE -->
+        <div class="toolbar">
+            <div class="toolbar-title">
+                <i class="fa-solid fa-graduation-cap text-blue-600"></i>
+                <span>Academia Brújula · Laboratorio CSS</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button id="toggleStructureBtn" class="btn">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span id="btnText">Activar Modo Estructura / DevTools</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PÁGINA REAL -->
+        <div id="pageContainer" class="page-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <span class="tag-badge tag-badge-header">&lt;header&gt;</span>
+                
+                <h1 class="brand-logo">
+                    <i class="fa-solid fa-compass" style="color: #2563eb;"></i>
+                    Academia Brújula
+                </h1>
+
+                <!-- NAV -->
+                <nav class="site-nav" aria-label="Navegación principal">
+                    <span class="tag-badge tag-badge-nav">&lt;nav&gt;</span>
+                    <ul>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#preguntas">Preguntas</a></li>
+                        <li><a href="./pages/practice.html">Taller Practico</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- MAIN -->
+            <main class="site-main">
+                <span class="tag-badge tag-badge-main">&lt;main&gt;</span>
+                
+                <h1 class="hero-title">Aprende a programar desde cero</h1>
+                <p class="hero-subtitle">Cursos online con mentoría y proyectos reales.</p>
+
+                <!-- SECTION -->
+                <section class="courses-section" id="cursos">
+                    <span class="tag-badge tag-badge-section">&lt;section&gt;</span>
+                    <h2 class="section-title">Nuestros cursos</h2>
+
+                    <div class="courses-grid">
+                        <!-- ARTICLE 1 -->
+                        <article class="course-card" tabindex="0">
+                            <span class="tag-badge tag-badge-article">&lt;article&gt;</span>
+                            <div class="card-banner">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="card-title">Desarrollo web</h3>
+                            <p class="card-description">Aprende HTML5, CSS3, JavaScript y desarrollo moderno paso a paso.</p>
+                            <div class="card-footer-lines">
+                                <div class="line-bar"></div>
+                                <div class="line-bar short"></div>
+                            </div>
+                        </article>
+
+                        <!-- ARTICLE 2 -->
+                        <article class="course-card" tabindex="0">
+                            <span class="tag-badge tag-badge-article">&lt;article&gt;</span>
+                            <div class="card-banner">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <h3 class="card-title">Datos con Python</h3>
+                            <p class="card-description">Domina el análisis de datos, automatización y bases del machine learning.</p>
+                            <div class="card-footer-lines">
+                                <div class="line-bar"></div>
+                                <div class="line-bar short"></div>
+                            </div>
+                        </article>
+
+                        <!-- ARTICLE 3 -->
+                        <article class="course-card" tabindex="0">
+                            <span class="tag-badge tag-badge-article">&lt;article&gt;</span>
+                            <div class="card-banner">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h3 class="card-title">Ciberseguridad</h3>
+                            <p class="card-description">Fundamentos de seguridad informática, redes y protección de aplicaciones.</p>
+                            <div class="card-footer-lines">
+                                <div class="line-bar"></div>
+                                <div class="line-bar short"></div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <span class="tag-badge tag-badge-footer">&lt;footer&gt;</span>
+                &copy; 2026 Academia Brújula
+            </footer>
+        </div>
+
+
+    </div>
+
+   <script src="./js/index.js"></script>
+</body>
+</html>
