@@ -2,7 +2,7 @@
 
 > **Antes de empezar:** OpenClaw evoluciona rápidamente. Los comandos de este artículo siguen la documentación oficial (docs.openclaw.ai) al momento de redactarlo. Si algo difiere en la versión utilizada, la documentación oficial es la referencia.
 
-## Introduction to OpenClaw
+## Introducción a OpenClaw
 
 Hasta ahora, los asistentes de IA se usaban así: se abre una pestaña, se escribe, se espera una respuesta y se cierra. El asistente solo existe mientras se le habla. OpenClaw plantea otra idea: ¿y si el asistente viviera donde ya se comunica el usuario (WhatsApp, Telegram, Discord, Slack), recordara lo que se habló y pudiera hacer cosas en la computadora aunque no se estuviera mirando?
 
