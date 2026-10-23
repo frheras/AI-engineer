@@ -196,15 +196,7 @@ Con autenticación por llaves creas un par:
 - La llave privada: es tu llave. Se queda en tu laptop y nunca se comparte.
 - La llave pública: es el candado. La copias al servidor y puedes compartirla sin riesgo.
 
-```text
-Tu laptop                                  Tu VPS
-┌────────────────────┐                    ┌──────────────────────┐
-│ llave PRIVADA      │  ── "quiero entrar" ─▶ │ llave PÚBLICA        │
-│ ~/.ssh/id_ed25519  │  ◀── desafío ───────  │ ~/.ssh/authorized_keys│
-│                    │  ── prueba ─────────▶ │ (el candado)         │
-└────────────────────┘                    └──────────────────────┘
-                                              ✔ ¡Bienvenido!
-```
+![ssh-img](../00-assets/img/ssh-img.png)
 
 El servidor te lanza un desafío que solo puede resolver quien tiene la llave privada correcta. Tu llave nunca viaja por la red.
 
