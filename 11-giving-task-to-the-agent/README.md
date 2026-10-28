@@ -96,47 +96,6 @@ La defensa más importante es conceptual: **dale al agente solo lo que necesita 
 | Dejar el gateway abierto | Mantenerlo en local o detrás de autenticación y firewall |
 
 
-## Empoderando OpenClaw con Zapier MCP: integración segura de herramientas de IA
-
-Hasta ahora tu agente trabaja con lo que hay en su entorno: archivos, terminal, web. Pero la mayor parte de tu trabajo real vive en otras aplicaciones: tu correo, tu calendario, hojas de cálculo, un CRM, Slack. ¿Cómo se conecta el agente con todo eso sin que tengas que programar una integración para cada app?
-
-### Qué es MCP
-
-**MCP (Model Context Protocol)** es un estándar abierto que define una forma común para que los modelos de IA y los agentes descubran y usen **herramientas externas**. Una analogía útil: MCP es como el puerto USB para los agentes. En lugar de un cable distinto para cada dispositivo, hay un conector estándar. Con MCP, un servidor expone una lista de herramientas ("crear evento", "enviar correo", "agregar fila a una hoja") y el agente, como cliente, puede ver qué ofrece y llamarlas.
-
-### Qué aporta Zapier MCP
-
-Zapier ya conecta miles de aplicaciones. **Zapier MCP** expone parte de esas acciones como herramientas MCP, de modo que tu agente puede, con **una sola conexión**, realizar acciones en muchas apps. Tú eliges **qué acciones concretas** habilitas.
-
-Esto cambia el tipo de tarea que puedes delegar:
-
-| Antes (agente aislado) | Después (agente + Zapier MCP) |
-|---|---|
-| "Resume este archivo" | "Resume este archivo y guárdalo como fila en mi hoja de seguimiento" |
-| "Redacta un correo" | "Redacta un borrador de correo y déjalo en mi bandeja de borradores" |
-| "Dime qué hay que hacer" | "Crea las tareas en mi herramienta de gestión de proyectos" |
-
-### "Integración segura": poder con control
-
-Cada herramienta que habilitas es una **capacidad nueva que el agente puede usar**, y, recordando la lectura anterior, una nueva superficie de riesgo. Si un prompt injection logra manipular al agente, solo podrá hacer lo que le hayas habilitado. Por eso aplica estas reglas:
-
-1. **Habilita solo las acciones necesarias.** Si solo quieres que lea el calendario, no habilites "borrar eventos" ni "enviar correos".
-2. **Prefiere acciones de lectura o de borrador** antes que acciones irreversibles (enviar, borrar, pagar).
-3. **Usa cuentas de prueba** mientras aprendes, no tu correo o calendario principal.
-4. **Trata la URL/credencial de conexión como un secreto.** Quien la tenga puede usar las acciones que habilitaste. No la subas a repositorios ni la compartas.
-5. **Revisa los registros de actividad** para ver qué ejecutó realmente el agente.
-6. **Mantén una confirmación humana** en acciones con efectos externos.
-
-### Flujo de trabajo general
-
-1. Crear tu servidor MCP en Zapier.
-2. Agregar solo las acciones que necesitas, con su cuenta de prueba.
-3. Copiar la información de conexión y guardarla de forma segura.
-4. Registrar ese servidor MCP en la configuración de OpenClaw.
-5. Probar con una tarea pequeña y verificar el resultado en la app de destino.
-
-> Los pasos exactos de la interfaz de Zapier y de la configuración de OpenClaw pueden cambiar entre versiones. Sigue la guía de la práctica y la documentación oficial vigente.
-
 ## Conectando OpenClaw con Telegram
 
 Hasta ahora hablas con el agente desde la terminal o su interfaz local. Pero un asistente personal es realmente útil cuando está **donde ya estás tú**: tu celular. Conectar OpenClaw a Telegram te permite enviarle tareas desde cualquier lugar, como si le escribieras a un contacto.
@@ -188,6 +147,48 @@ Este canal es una **puerta nueva** hacia tu agente. Por lo tanto:
 - **Usa tu ID numérico de usuario** en listas de permitidos, no solo el nombre de usuario.
 - **Ten cuidado al añadir el bot a grupos.** Cualquier mensaje del grupo es una entrada potencial de prompt injection.
 - **Revoca el token** de inmediato si sospechas una filtración.
+
+## Empoderando OpenClaw con Zapier MCP: integración segura de herramientas de IA
+
+Hasta ahora tu agente trabaja con lo que hay en su entorno: archivos, terminal, web. Pero la mayor parte de tu trabajo real vive en otras aplicaciones: tu correo, tu calendario, hojas de cálculo, un CRM, Slack. ¿Cómo se conecta el agente con todo eso sin que tengas que programar una integración para cada app?
+
+### Qué es MCP
+
+**MCP (Model Context Protocol)** es un estándar abierto que define una forma común para que los modelos de IA y los agentes descubran y usen **herramientas externas**. Una analogía útil: MCP es como el puerto USB para los agentes. En lugar de un cable distinto para cada dispositivo, hay un conector estándar. Con MCP, un servidor expone una lista de herramientas ("crear evento", "enviar correo", "agregar fila a una hoja") y el agente, como cliente, puede ver qué ofrece y llamarlas.
+
+### Qué aporta Zapier MCP
+
+Zapier ya conecta miles de aplicaciones. **Zapier MCP** expone parte de esas acciones como herramientas MCP, de modo que tu agente puede, con **una sola conexión**, realizar acciones en muchas apps. Tú eliges **qué acciones concretas** habilitas.
+
+Esto cambia el tipo de tarea que puedes delegar:
+
+| Antes (agente aislado) | Después (agente + Zapier MCP) |
+|---|---|
+| "Resume este archivo" | "Resume este archivo y guárdalo como fila en mi hoja de seguimiento" |
+| "Redacta un correo" | "Redacta un borrador de correo y déjalo en mi bandeja de borradores" |
+| "Dime qué hay que hacer" | "Crea las tareas en mi herramienta de gestión de proyectos" |
+
+### "Integración segura": poder con control
+
+Cada herramienta que habilitas es una **capacidad nueva que el agente puede usar**, y, recordando la lectura anterior, una nueva superficie de riesgo. Si un prompt injection logra manipular al agente, solo podrá hacer lo que le hayas habilitado. Por eso aplica estas reglas:
+
+1. **Habilita solo las acciones necesarias.** Si solo quieres que lea el calendario, no habilites "borrar eventos" ni "enviar correos".
+2. **Prefiere acciones de lectura o de borrador** antes que acciones irreversibles (enviar, borrar, pagar).
+3. **Usa cuentas de prueba** mientras aprendes, no tu correo o calendario principal.
+4. **Trata la URL/credencial de conexión como un secreto.** Quien la tenga puede usar las acciones que habilitaste. No la subas a repositorios ni la compartas.
+5. **Revisa los registros de actividad** para ver qué ejecutó realmente el agente.
+6. **Mantén una confirmación humana** en acciones con efectos externos.
+
+### Flujo de trabajo general
+
+1. Crear tu servidor MCP en Zapier.
+2. Agregar solo las acciones que necesitas, con su cuenta de prueba.
+3. Copiar la información de conexión y guardarla de forma segura.
+4. Registrar ese servidor MCP en la configuración de OpenClaw.
+5. Probar con una tarea pequeña y verificar el resultado en la app de destino.
+
+> Los pasos exactos de la interfaz de Zapier y de la configuración de OpenClaw pueden cambiar entre versiones. Sigue la guía de la práctica y la documentación oficial vigente.
+
 
 ### Problemas frecuentes
 
